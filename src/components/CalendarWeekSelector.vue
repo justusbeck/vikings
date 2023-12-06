@@ -26,18 +26,18 @@ export default {
 
   methods: {
     selectPrevious() {
-      let newSelectedDate = dayjs(this.selectedDate).subtract(1, "week");
-      this.$emit("dateSelected", newSelectedDate);
+      let newSelectedWeek = dayjs(this.selectedDate).subtract(1, "week");
+      this.$emit("dateSelected", newSelectedWeek);
     },
 
     selectCurrent() {
-      let newSelectedDate = dayjs(this.currentDate);
-      this.$emit("dateSelected", newSelectedDate);
+      let newSelectedWeek = dayjs(this.currentDate);
+      this.$emit("dateSelected", newSelectedWeek);
     },
 
     selectNext() {
-      let newSelectedDate = dayjs(this.selectedDate).add(1, "week");
-      this.$emit("dateSelected", newSelectedDate);
+      let newSelectedWeek = dayjs(this.selectedDate).add(1, "week");
+      this.$emit("dateSelected", newSelectedWeek);
     }
   }
 };

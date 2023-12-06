@@ -32,7 +32,7 @@ import weekday from "dayjs/plugin/weekday";
 import weekOfYear from "dayjs/plugin/weekOfYear";
 import CalendarMonthDayItem from "./CalendarMonthDayItem.vue";
 import CalendarDateIndicator from "./CalendarDateIndicator.vue";
-import CalendarDateSelector from "./CalendarDateSelector.vue";
+import CalendarDateSelector from "./CalendarMonthSelector.vue";
 import CalendarWeekdays from "./CalendarWeekdays.vue";
 
 dayjs.extend(weekday);
