@@ -96,7 +96,7 @@ export default {
       );
       const previousMonth = dayjs(`${this.year}-${this.month}-01`).subtract(
         1,
-        "month"
+        "week"
       );
 
       // Cover first day of the month being sunday (firstDayOfTheMonthWeekday === 0)
@@ -128,7 +128,7 @@ export default {
         `${this.year}-${this.month}-${this.currentMonthDays.length}`
       );
 
-      const nextMonth = dayjs(`${this.year}-${this.month}-01`).add(1, "month");
+      const nextMonth = dayjs(`${this.year}-${this.month}-01`).add(1, "week");
 
       const visibleNumberOfDaysFromNextMonth = lastDayOfTheMonthWeekday
         ? 7 - lastDayOfTheMonthWeekday

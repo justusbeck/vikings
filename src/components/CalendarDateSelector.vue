@@ -26,7 +26,7 @@ export default {
 
   methods: {
     selectPrevious() {
-      let newSelectedDate = dayjs(this.selectedDate).subtract(1, "month");
+      let newSelectedDate = dayjs(this.selectedDate).subtract(1, "week");
       this.$emit("dateSelected", newSelectedDate);
     },
 
@@ -36,7 +36,7 @@ export default {
     },
 
     selectNext() {
-      let newSelectedDate = dayjs(this.selectedDate).add(1, "month");
+      let newSelectedDate = dayjs(this.selectedDate).add(1, "week");
       this.$emit("dateSelected", newSelectedDate);
     }
   }
