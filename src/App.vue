@@ -1,17 +1,20 @@
 <template>
   <div id="app">
     <CalendarMonth/>
+    <CalendarDWM/>
   </div>
 </template>
 
 <script>
 import CalendarMonth from "./components/CalendarMonth.vue";
+import CalendarDWM from "./components/CalendarDayWeekMonth.vue"
 
 export default {
   name: "App",
 
   components: {
-    CalendarMonth
+    CalendarMonth,
+    CalendarDWM
   }
 };
 </script>

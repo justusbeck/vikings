@@ -1,32 +1,21 @@
 <script>
-  import Day from "./CalendarDay.vue"
-  import Week from "./CalenderWeek.vue"
-  import Month from "./CalenderMonth.vue"
-  import { ref } from 'vue'
 
-  const currentTab = ref('Month');
-  const tabs = {
-    Day,
-    Week,
-    Month
-  }
 
 </script>
 
 <template>
   <div>
     <div>
-      <component :is="tabs[currentTab]" ></component>
-    </div>
-    <div>
-      <button
-      v-for="(_, tab) in tabs"
-      :key="tab"
-      :class="['tab-button', { active: currentTab === tab }]"
-      @click="currentTab = tab">
-
-        {{ tab }}
+      <button class="tab-button">
+        Day
       </button>
+      <button class="tab-button">
+        Week
+      </button>
+      <button class="tab-button">
+        Month
+      </button>
+
     </div>
   </div>
 </template>
