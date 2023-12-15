@@ -23,14 +23,6 @@ const TABS = {
     <h2 class="header">December 2023</h2>
 
     <div>
-      <button
-        v-for="(_, tab) in TABS"
-        :key="tab"
-        :class="['tab-button', { active: currentTab === tab }]"
-        @click="currentTab = tab">
-
-          {{ tab }}
-      </button>
       <button class="add">+</button>
     </div>
 
@@ -38,7 +30,7 @@ const TABS = {
 
   <div class="demo2">
     <div>
-      <component :is="TABS[currentTab]" ></component>
+      
     </div> 
   </div>
 </template>
