@@ -1,6 +1,6 @@
 <template>
   <div id="app">
-    <CalendarMonth/>
+
     <CalendarDWM/>
   </div>
 </template>
