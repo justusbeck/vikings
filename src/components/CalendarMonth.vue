@@ -6,10 +6,10 @@ import dayjs from 'dayjs'
 import weekday from 'dayjs/plugin/weekday'
 import weekOfYear from 'dayjs/plugin/weekOfYear'
 
-import CalendarMonthDayItem from './CalendarMonthDayItem.vue'
-import CalendarDateIndicator from './CalendarDateIndicator.vue'
-import CalendarDateSelector from './CalendarMonthSelector.vue'
-import CalendarWeekdays from './CalendarWeekdays.vue'
+import CalendarMonthDayItem from '@/components/CalendarMonthDayItem.vue'
+import CalendarDateIndicator from '@/components/CalendarDateIndicator.vue'
+import CalendarDateSelector from '@/components/CalendarMonthSelector.vue'
+import CalendarWeekdays from '@/components/CalendarWeekdays.vue'
 
 dayjs.extend(weekday)
 dayjs.extend(weekOfYear)
