@@ -10,7 +10,7 @@
 	
 	const selectedMonth = computed(() => {
 		return this.selectedDate.format("MMMM YYYY");
-	}
+	})
 
 </script>
 
