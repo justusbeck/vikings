@@ -1,35 +1,51 @@
+<script setup lang="ts">
+import CalendarMonth from '@/components/CalendarMonth.vue'
+import CalendarDWM from '@/components/CalendarDayWeekMonth.vue'
+import SidebarAgenda from '@/components/SidebarAgenda.vue'
+import TheHeader from '@/components/TheHeader.vue'
+</script>
+
 <template>
-  <div id="app">
-    <CalendarMonth/>
-    <CalendarDWM/>
+  <link
+    rel="stylesheet"
+    href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200"
+  />
+  <div class="view-layout">
+    <TheHeader />
+    <div class="content">
+      <SidebarAgenda />
+      <main>
+        <!-- <CalendarMonth />
+        <CalendarDWM /> -->
+      </main>
+    </div>
   </div>
 </template>
 
-<script>
-import CalendarMonth from "./components/CalendarMonth.vue";
-import CalendarDWM from "./components/CalendarDayWeekMonth.vue"
-
-export default {
-  name: "App",
-
-  components: {
-    CalendarMonth,
-    CalendarDWM
-  }
-};
-</script>
-
 <style>
-#app {
-  font-family: "Avenir", Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
-}
+@import url('https://fonts.googleapis.com/css2?family=Work+Sans:wght@400;500;700;800&display=swap');
 
 body {
+  padding: 2rem;
+
+  background-color: var(--dark);
+
+  font-family:
+    Work Sans,
+    sans-serif;
+
+  --dark: #090909;
+  --light: #ebebeb;
+  --accent: #60c8a3;
+}
+
+button {
+  border: none;
+  outline: none;
+  box-shadow: none;
+}
+
+/* body {
   font-family: sans-serif;
   font-weight: 100;
   --grey-100: #e4e9f0;
@@ -38,7 +54,7 @@ body {
   --grey-800: #3e4e63;
   --grid-gap: 1px;
   --day-label-size: 20px;
-}
+} */
 
 ol,
 li {
