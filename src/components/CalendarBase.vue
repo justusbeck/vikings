@@ -4,7 +4,7 @@ import CalendarDWM from '@/components/CalendarDayWeekMonth.vue'
 </script>
 
 <template>
-  <div class="cal-layout"><!--<CalendarMonth /><CalendarDWM />--></div>
+  <div class="cal-layout"><CalendarMonth /><CalendarDWM /></div>
 </template>
 
 <style scoped>

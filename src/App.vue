@@ -26,7 +26,7 @@ body {
 
   --dark: #090909;
   --light: #ebebeb;
-  --accent: #60c8a3;
+  --accent: #47ba91;
 }
 
 button {

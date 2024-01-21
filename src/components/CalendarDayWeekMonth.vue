@@ -12,23 +12,19 @@
 
 <style scoped>
 .tab-button {
-  padding: 6px 10px;
+  padding: 4px 16px;
   border-radius: 15px;
   border: 0px;
   cursor: pointer;
-  background: white;
+  background: var(--light);
   margin-left: 10px;
+
+  font-family: Work Sans;
+  font-weight: 700;
+  font-size: 1.5rem;
 }
 .tab-button:hover,
 .tab-button.active {
-  background: lightsalmon;
-}
-.task {
-  color: black;
-  background-color: white;
-  border-radius: 10px;
-  padding: 10px;
-  margin: 10px;
-  margin-top: 0px;
+  background: var(--accent);
 }
 </style>
