@@ -2,7 +2,7 @@
   <div class="calendar-date-indicator">{{ selectedMonth }}</div>
 </template>
 
-<script>
+<script setup lang="ts">
 export default {
   props: {
     selectedDate: {

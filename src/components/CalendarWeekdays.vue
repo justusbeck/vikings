@@ -4,7 +4,7 @@
   </ol>
 </template>
 
-<script>
+<script setup lang="ts">
 const WEEKDAYS = ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"];
 
 export default {
