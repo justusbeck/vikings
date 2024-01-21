@@ -1,4 +1,6 @@
 <script setup>
+	import dayjs from "dayjs"
+	
 	const props = defineProps({
 		currentData: {
 			type: String,

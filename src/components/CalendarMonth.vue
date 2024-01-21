@@ -2,7 +2,7 @@
 	import { ref } from 'vue'
 	import { computed } from 'vue'
   
-	import dayjs from 'dayjs'
+	import dayjs from "dayjs"
 	import weekday from "dayjs/plugin/weekday";
 	import weekOfYear from "dayjs/plugin/weekOfYear";
 	
