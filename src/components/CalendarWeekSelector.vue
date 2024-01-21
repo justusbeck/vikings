@@ -1,16 +1,14 @@
 <script setup lang="ts">
-import dayjs from 'dayjs'
+import dayjs from 'dayjs';
+import { defineProps, ref } from'vue';
 
-const props = defineProps({
-  currentData: {
-    type: String,
-    required: true
-  },
-  selectedDate: {
-    type: Object,
-    required: true
-  }
-})
+interface CalendarDateSelectorProps {
+  currentData: string;
+  selectedDate: dayjs.Dayjs;
+  onDateSelected: (date: dayjs.Dayjs) => void;
+}
+
+const props = defineProps<CalendarDateSelectorProps>();
 
 function selectPrevious(this: any) {
   let newSelectedWeek = dayjs(this.selectedDate).subtract(1, 'week')

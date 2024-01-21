@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import { ref } from 'vue'
 import { computed } from 'vue'
+import { defineProps } from 'vue'
 
 import dayjs from 'dayjs'
 import weekday from 'dayjs/plugin/weekday'
@@ -14,47 +15,47 @@ import CalendarWeekdays from '@/components/CalendarWeekdays.vue'
 dayjs.extend(weekday)
 dayjs.extend(weekOfYear)
 
-const selectedDate = dayjs()
+const props = defineProps(['selectedDate']);
 
 const selectedDte = ref(dayjs())
 
 const days = computed(() => {
-  return [...this.previousMonthDays, ...this.currentMonthDays, ...this.nextMonthDays]
-})
+  return [...previousMonthDays.value, ...currentMonthDays.value, ...nextMonthDays.value];
+});
 const today = computed(() => {
   return dayjs().format('YYYY-MM-DD')
 })
 const month = computed(() => {
-  return Number(this.selectedDate.format('M'))
-})
+  return Number(selectedDte.value.format('M'));
+});
 const year = computed(() => {
-  return Number(this.selectedDate.format('YYYY'))
-})
+  return Number(selectedDte.value.format('YYYY'));
+});
 const numberOfDaysInMonth = computed(() => {
-  return dayjs(this.selectedDate).daysInMonth()
-})
+  return dayjs(selectedDte.value).daysInMonth();
+});
 
 const currentMonthDays = computed(() => {
-  return [...Array(this.numberOfDaysInMonth)].map((day, index) => {
+  return [...Array(numberOfDaysInMonth.value)].map((day, index) => {
     return {
-      date: dayjs(`${this.year}-${this.month}-${index + 1}`).format('YYYY-MM-DD'),
-      isCurrentMonth: true
-    }
-  })
-})
+      date: dayjs(`${year.value}-${month.value}-${index + 1}`).format('YYYY-MM-DD'),
+      isCurrentMonth: true,
+    };
+  });
+});
 
 const previousMonthDays = computed(() => {
-  const firstDayOfTheMonthWeekday = this.getWeekday(this.currentMonthDays[0].date)
+  const firstDayOfTheMonthWeekday = getWeekday(currentMonthDays.value[0].date);
 
-  const previousMonth = dayjs(`${this.year}-${this.month}-01`).subtract(1, 'week')
+  const previousMonth = dayjs(`${year.value}-${month.value}-01`).subtract(1, 'week');
 
   const visibleNumberOfDaysFromPreviousMonth = firstDayOfTheMonthWeekday
     ? firstDayOfTheMonthWeekday - 1
-    : 6
+    : 6;
 
-  const previousMonthLastMondayDayOfMonth = dayjs(this.currentMonthDays[0].date)
+  const previousMonthLastMondayDayOfMonth = dayjs(currentMonthDays.value[0].date)
     .subtract(visibleNumberOfDaysFromPreviousMonth, 'day')
-    .date()
+    .date();
 
   return [...Array(visibleNumberOfDaysFromPreviousMonth)].map((day, index) => {
     return {
@@ -63,34 +64,35 @@ const previousMonthDays = computed(() => {
           previousMonthLastMondayDayOfMonth + index
         }`
       ).format('YYYY-MM-DD'),
-      isCurrentMonth: false
-    }
-  })
-})
+      isCurrentMonth: false,
+    };
+  });
+});
 
 const nextMonthDays = computed(() => {
-  const lastDayOfTheMonthWeekday = this.getWeekday(
-    `${this.year}-${this.month}-${this.currentMonthDays.length}`
-  )
-  const nextMonth = dayjs(`${this.year}-${this.month}-01`).add(1, 'week')
+  const lastDayOfTheMonthWeekday = getWeekday(
+    `${year.value}-${month.value}-${currentMonthDays.value.length}`
+  );
+  const nextMonth = dayjs(`${year.value}-${month.value}-01`).add(1, 'week');
 
   const visibleNumberOfDaysFromNextMonth = lastDayOfTheMonthWeekday
     ? 7 - lastDayOfTheMonthWeekday
-    : lastDayOfTheMonthWeekday
+    : lastDayOfTheMonthWeekday;
 
   return [...Array(visibleNumberOfDaysFromNextMonth)].map((day, index) => {
     return {
       date: dayjs(`${nextMonth.year()}-${nextMonth.month() + 1}-${index + 1}`).format('YYYY-MM-DD'),
-      isCurrentMonth: false
-    }
-  })
-})
+      isCurrentMonth: false,
+    };
+  });
+});
 
 function getWeekday(date: string | number | dayjs.Dayjs | Date | null | undefined) {
-  return dayjs(date).weekday()
+  return dayjs(date).weekday();
 }
-function selectDate(this: any, newSelectedDate: any) {
-  this.selectedDate = newSelectedDate
+
+function selectDate(newSelectedDate: any) {
+  selectedDte.value = newSelectedDate;
 }
 </script>
 

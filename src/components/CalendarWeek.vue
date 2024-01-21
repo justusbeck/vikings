@@ -1,46 +1,45 @@
 <script setup lang="ts">
-import { ref } from 'vue'
-import { onMounted } from 'vue'
+import { ref, onMounted } from 'vue';
+import dayjs from 'dayjs';
+import weekday from 'dayjs/plugin/weekday';
+import CalendarMonthDayItem from './CalendarMonthDayItem.vue';
+import CalendarDateIndicator from './CalendarDateIndicator.vue';
+import CalendarDateSelector from './CalendarWeekSelector.vue';
+import CalendarWeekdays from './CalendarWeekdays.vue';
 
-import dayjs from 'dayjs'
-import weekday from 'dayjs/plugin/weekday'
-import CalendarMonthDayItem from './CalendarMonthDayItem.vue'
-import CalendarDateIndicator from './CalendarDateIndicator.vue'
-import CalendarDateSelector from './CalendarWeekSelector.vue'
-import CalendarWeekdays from './CalendarWeekdays.vue'
+dayjs.extend(weekday);
 
-dayjs.extend(weekday)
+const selectedDate = ref(dayjs().startOf('week'));
+const week = ref([] as { date: string; isCurrentMonth: boolean }[]);
+const today = ref(dayjs().format('YYYY-MM-DD'));
 
-const selectedDate = ref(dayjs().startOf('week'))
-const week = ref([])
-const today = ref(dayjs().format('YYYY-MM-DD'))
-
-function selectDate(this: any, newSelectedDate: { startOf: (arg0: string) => any }) {
-  this.selectedDate = newSelectedDate.startOf('week')
-  this.generateWeek()
+function selectDate(newSelectedDate: dayjs.Dayjs) {
+  selectedDate.value = newSelectedDate.startOf('week');
+  generateWeek();
 }
-function generateWeek(this: any) {
-  const startDate = dayjs(this.selectedDate).startOf('week')
-  const endDate = dayjs(this.selectedDate).endOf('week')
-  const days = []
 
-  let currentDate = startDate
+function generateWeek() {
+  const startDate = dayjs(selectedDate.value).startOf('week');
+  const endDate = dayjs(selectedDate.value).endOf('week');
+  const days = [];
+
+  let currentDate = startDate;
 
   while (currentDate.isBefore(endDate) || currentDate.isSame(endDate, 'day')) {
     days.push({
       date: currentDate.format('YYYY-MM-DD'),
-      isCurrentMonth: currentDate.isSame(this.selectedDate, 'month')
-    })
+      isCurrentMonth: currentDate.isSame(selectedDate.value, 'month'),
+    });
 
-    currentDate = currentDate.add(1, 'day')
+    currentDate = currentDate.add(1, 'day');
   }
 
-  this.week = days
+  week.value = days;
 }
 
 onMounted(() => {
-  this.generateWeek()
-})
+  generateWeek();
+});
 </script>
 
 <template>
@@ -52,7 +51,7 @@ onMounted(() => {
       />
 
       <CalendarDateSelector
-        :current-date="today"
+        :current-data="today"
         :selected-date="selectedDate"
         @dateSelected="selectDate"
       />
