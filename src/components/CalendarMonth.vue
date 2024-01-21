@@ -86,10 +86,10 @@ const nextMonthDays = computed(() => {
   })
 })
 
-function getWeekday(date) {
+function getWeekday(date: string | number | dayjs.Dayjs | Date | null | undefined) {
   return dayjs(date).weekday()
 }
-function selectDate(newSelectedDate) {
+function selectDate(this: any, newSelectedDate: any) {
   this.selectedDate = newSelectedDate
 }
 </script>
