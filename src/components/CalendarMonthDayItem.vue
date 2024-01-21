@@ -1,3 +1,27 @@
+<script setup lang="ts">
+import { computed } from 'vue'
+import dayjs from 'dayjs'
+
+const props = defineProps({
+  day: {
+    type: Object,
+    required: true
+  },
+  isCurrentMonth: {
+    type: Boolean,
+    default: false
+  },
+  isToday: {
+    type: Boolean,
+    default: false
+  }
+})
+
+const label = computed(() => {
+  return dayjs(props.day.date).format('D')
+})
+</script>
+
 <template>
   <li
     class="calendar-day"
@@ -9,37 +33,6 @@
     <span>{{ label }}</span>
   </li>
 </template>
-
-<script setup lang="ts">
-import dayjs from "dayjs";
-
-export default {
-  name: "CalendarMonthDayItem",
-
-  props: {
-    day: {
-      type: Object,
-      required: true
-    },
-
-    isCurrentMonth: {
-      type: Boolean,
-      default: false
-    },
-
-    isToday: {
-      type: Boolean,
-      default: false
-    }
-  },
-
-  computed: {
-    label() {
-      return dayjs(this.day.date).format("D");
-    }
-  }
-};
-</script>
 
 <style scoped>
 .calendar-day {

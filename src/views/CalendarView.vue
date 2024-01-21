@@ -8,7 +8,7 @@ import CalendarBase from '@/components/CalendarBase.vue'
     <div class="content">
       <SidebarAgenda />
       <main>
-        <!-- <CalendarBase /> -->
+        <CalendarBase />
       </main>
     </div>
   </div>

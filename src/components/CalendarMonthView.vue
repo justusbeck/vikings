@@ -1,5 +1,5 @@
 <script lang="ts">
-import CalComp from './CalendarMonth.vue'
+import CalComp from '@/components/CalendarMonth.vue'
 </script>
 
 <template>
