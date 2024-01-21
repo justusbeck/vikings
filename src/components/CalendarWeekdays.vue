@@ -1,18 +1,22 @@
-<script setup lang="ts">
-import { computed } from 'vue'
-
-const WEEKDAYS = ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun']
-
-const weekdays = computed(() => {
-  return WEEKDAYS
-})
-</script>
-
 <template>
   <ol class="day-of-week">
     <li v-for="weekday in weekdays" :key="weekday">{{ weekday }}</li>
   </ol>
 </template>
+
+<script setup lang="ts">
+const WEEKDAYS = ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"];
+
+export default {
+  name: "CalendarWeekdays",
+
+  computed: {
+    weekdays() {
+      return WEEKDAYS;
+    }
+  }
+};
+</script>
 
 <style scoped>
 .day-of-week {

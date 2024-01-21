@@ -1,15 +1,25 @@
-<script setup lang="ts"></script>
+<script>
+
+
+</script>
 
 <template>
   <div>
     <div>
-      <button class="tab-button">Day</button>
-      <button class="tab-button">Week</button>
-      <button class="tab-button">Month</button>
+      <button class="tab-button">
+        Day
+      </button>
+      <button class="tab-button">
+        Week
+      </button>
+      <button class="tab-button">
+        Month
+      </button>
+
     </div>
   </div>
 </template>
-
+  
 <style scoped>
 .tab-button {
   padding: 6px 10px;
@@ -19,12 +29,11 @@
   background: white;
   margin-left: 10px;
 }
-.tab-button:hover,
-.tab-button.active {
+.tab-button:hover, .tab-button.active {
   background: lightsalmon;
 }
 .task {
-  color: black;
+  color:black;
   background-color: white;
   border-radius: 10px;
   padding: 10px;

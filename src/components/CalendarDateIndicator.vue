@@ -1,21 +1,23 @@
-<script setup lang="ts">
-import { computed } from 'vue'
-
-const props = defineProps({
-  selectedDate: {
-    type: Object,
-    required: true
-  }
-})
-
-const selectedMonth = computed(() => {
-  return props.selectedDate.format('MMMM YYYY')
-})
-</script>
-
 <template>
   <div class="calendar-date-indicator">{{ selectedMonth }}</div>
 </template>
+
+<script setup lang="ts">
+export default {
+  props: {
+    selectedDate: {
+      type: Object,
+      required: true
+    }
+  },
+
+  computed: {
+    selectedMonth() {
+      return this.selectedDate.format("MMMM YYYY");
+    }
+  }
+};
+</script>
 
 <style scoped>
 .calendar-date-indicator {
@@ -24,3 +26,4 @@ const selectedMonth = computed(() => {
   color: var(--grey-00);
 }
 </style>
+

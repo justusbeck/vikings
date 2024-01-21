@@ -12,15 +12,15 @@ const props = defineProps({
   }
 })
 
-function selectPrevious(this: any) {
+function selectPrevious() {
   let newSelectedWeek = dayjs(this.selectedDate).subtract(1, 'week')
   this.$emit('dateSelected', newSelectedWeek)
 }
-function selectCurrent(this: any) {
+function selectCurrent() {
   let newSelectedWeek = dayjs(this.currentDate)
   this.$emit('dateSelected', newSelectedWeek)
 }
-function selectNext(this: any) {
+function selectNext() {
   let newSelectedWeek = dayjs(this.selectedDate).add(1, 'week')
   this.$emit('dateSelected', newSelectedWeek)
 }
