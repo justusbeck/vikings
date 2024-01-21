@@ -15,11 +15,11 @@ const selectedDate = ref(dayjs().startOf('week'))
 const week = ref([])
 const today = ref(dayjs().format('YYYY-MM-DD'))
 
-function selectDate(newSelectedDate) {
+function selectDate(this: any, newSelectedDate: { startOf: (arg0: string) => any }) {
   this.selectedDate = newSelectedDate.startOf('week')
   this.generateWeek()
 }
-function generateWeek() {
+function generateWeek(this: any) {
   const startDate = dayjs(this.selectedDate).startOf('week')
   const endDate = dayjs(this.selectedDate).endOf('week')
   const days = []
