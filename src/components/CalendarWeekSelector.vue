@@ -1,3 +1,31 @@
+<script setup lang="ts">
+import dayjs from 'dayjs'
+
+const props = defineProps({
+  currentData: {
+    type: String,
+    required: true
+  },
+  selectedDate: {
+    type: Object,
+    required: true
+  }
+})
+
+function selectPrevious() {
+  let newSelectedWeek = dayjs(this.selectedDate).subtract(1, 'week')
+  this.$emit('dateSelected', newSelectedWeek)
+}
+function selectCurrent() {
+  let newSelectedWeek = dayjs(this.currentDate)
+  this.$emit('dateSelected', newSelectedWeek)
+}
+function selectNext() {
+  let newSelectedWeek = dayjs(this.selectedDate).add(1, 'week')
+  this.$emit('dateSelected', newSelectedWeek)
+}
+</script>
+
 <template>
   <div class="calendar-date-selector">
     <span @click="selectPrevious">-</span>
@@ -5,43 +33,6 @@
     <span @click="selectNext">+</span>
   </div>
 </template>
-
-<script>
-import dayjs from "dayjs";
-
-export default {
-  name: "CalendarModeSelector",
-
-  props: {
-    currentDate: {
-      type: String,
-      required: true
-    },
-
-    selectedDate: {
-      type: Object,
-      required: true
-    }
-  },
-
-  methods: {
-    selectPrevious() {
-      let newSelectedWeek = dayjs(this.selectedDate).subtract(1, "week");
-      this.$emit("dateSelected", newSelectedWeek);
-    },
-
-    selectCurrent() {
-      let newSelectedWeek = dayjs(this.currentDate);
-      this.$emit("dateSelected", newSelectedWeek);
-    },
-
-    selectNext() {
-      let newSelectedWeek = dayjs(this.selectedDate).add(1, "week");
-      this.$emit("dateSelected", newSelectedWeek);
-    }
-  }
-};
-</script>
 
 <style scoped>
 .calendar-date-selector {
