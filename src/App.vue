@@ -1,7 +1,5 @@
 <script setup lang="ts">
-import CalendarMonth from '@/components/CalendarMonth.vue'
-import CalendarDWM from '@/components/CalendarDayWeekMonth.vue'
-import SidebarAgenda from '@/components/SidebarAgenda.vue'
+import { RouterView } from 'vue-router'
 import TheHeader from '@/components/TheHeader.vue'
 </script>
 
@@ -10,16 +8,8 @@ import TheHeader from '@/components/TheHeader.vue'
     rel="stylesheet"
     href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200"
   />
-  <div class="view-layout">
-    <TheHeader />
-    <div class="content">
-      <SidebarAgenda />
-      <main>
-        <!-- <CalendarMonth />
-        <CalendarDWM /> -->
-      </main>
-    </div>
-  </div>
+  <TheHeader />
+  <RouterView />
 </template>
 
 <style>
